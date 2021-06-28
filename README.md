@@ -1,1 +1,2 @@
-# calculator-test-light-it-academy
+# Hometask
+## Calculator implementation + tests
