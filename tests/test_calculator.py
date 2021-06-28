@@ -3,5 +3,10 @@ import pytest
 from calculator import Calculator
 
 
-def test_add(calculator: Calculator):
-    assert calculator.add(1 + 1) == 1 + 1
+@pytest.fixture()
+def calc() -> Calculator:
+    return Calculator()
+
+
+def test_add(calc: Calculator):
+    assert calc.add(1, 1) == 1 + 1

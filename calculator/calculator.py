@@ -1,4 +1,5 @@
 """ Home task calculator module """
+from math import sqrt
 
 
 class Calculator:
@@ -9,27 +10,27 @@ class Calculator:
 
     def subtract(self, x: int, y: int) -> int:
         """ Subtract one attribute from another """
-        pass
+        return x - y
 
     def divide(self, x: int, y: int) -> float:
         """ Divide x attribute on y """
-        pass
+        return x / y
 
     def multiply(self, x: int, y: int) -> int:
         """ Multiply x attribute on y """
-        pass
+        return x * y
 
     def mod(self, x: int, y: int) -> int:
         """ Take mod of one attribute from another """
-        pass
+        return x % y
 
     def power(self, x: int, y: int) -> int:
         """ Raise attributes x to a power y """
-        pass
+        return x ** y
 
     def root(self, x: int) -> float:
         """ Take a root from attributes """
-        pass
+        return sqrt(x)
 
 
 c = Calculator()
