@@ -8,6 +8,15 @@ def calc() -> Calculator:
     return Calculator()
 
 
+invalid_data = [
+    (1.2, 1, TypeError),
+    (1, 1.2, TypeError),
+    ('a', 2, TypeError),
+    (2, 'a', TypeError),
+    ('a', 'a', TypeError)
+]
+
+
 @pytest.mark.parametrize(
     'first_value, second_value, result',
     [
@@ -26,6 +35,19 @@ def test_add(
 
 
 @pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_add_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.add(first_value, second_value) == exception
+
+
+@pytest.mark.parametrize(
     'first_value, second_value, result',
     [
         (1, 1, 0),
@@ -40,6 +62,19 @@ def test_subtract(
         second_value: int,
         result: int):
     assert calc.subtract(first_value, second_value) == result
+
+
+@pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_subtract_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.subtract(first_value, second_value) == exception
 
 
 @pytest.mark.parametrize(
@@ -62,6 +97,19 @@ def test_divide(
 
 
 @pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_divide_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.divide(first_value, second_value) == exception
+
+
+@pytest.mark.parametrize(
     'first_value, second_value, result',
     [
         (1, 1, 1),
@@ -77,6 +125,19 @@ def test_multiply(
         second_value: int,
         result: int):
     assert calc.multiply(first_value, second_value) == result
+
+
+@pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_multiply_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.multiply(first_value, second_value) == exception
 
 
 @pytest.mark.parametrize(
@@ -98,6 +159,19 @@ def test_mod(
 
 
 @pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_mod_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.mod(first_value, second_value) == exception
+
+
+@pytest.mark.parametrize(
     'first_value, second_value, result',
     [
         (1, 1, 1),
@@ -111,6 +185,19 @@ def test_power(
         second_value: int,
         result: int):
     assert calc.power(first_value, second_value) == result
+
+
+@pytest.mark.parametrize(
+    'first_value, second_value, exception',
+    invalid_data
+)
+def test_power_invalid(
+        calc: Calculator,
+        first_value: int,
+        second_value: int,
+        exception: Exception):
+    with pytest.raises(TypeError):
+        assert calc.power(first_value, second_value) == exception
 
 
 @pytest.mark.parametrize(

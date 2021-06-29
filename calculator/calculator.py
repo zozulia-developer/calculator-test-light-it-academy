@@ -5,7 +5,7 @@ from math import sqrt
 def is_int(x, y=1):
     """ Check if value is integer """
     if not isinstance(x, int) or not isinstance(y, int):
-        raise TypeError(f"Values must be an integer!")
+        raise TypeError("Values must be an integer!")
 
 
 class Calculator:
